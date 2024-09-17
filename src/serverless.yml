@@ -1,0 +1,28 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: wiseprimate
+service: php-serverless
+
+provider:
+  name: aws
+  region: us-east-1
+  environment:
+    APP_ENV: poc
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!tests/**'
+    - '!docs/**'
+
+functions:
+  web:
+    handler: ./public/index.php
+    runtime: php-83-fpm
+    timeout: 28 # em segundos
+    events:
+      - httpApi:
+          path: '/{proxy+}'
+          method: ANY
+
+plugins:
+  - ./vendor/bref/bref

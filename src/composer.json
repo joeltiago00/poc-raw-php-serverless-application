@@ -1,0 +1,17 @@
+{
+    "name": "root/html",
+    "description": "This is a simple POC to exemplify an app using raw PHP with the Serverless Framework.",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alvez2g"
+        }
+    ],
+    "require": {
+        "bref/bref": "^2.3"
+    }
+}
